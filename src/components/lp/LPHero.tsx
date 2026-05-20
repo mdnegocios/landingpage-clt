@@ -7,6 +7,7 @@ interface LPHeroProps {
   ctaText?: string;
   whatsappNumber?: string;
   whatsappMessage?: string;
+  whatsappUrl?: string;
   heroImage: string;
   badge?: string;
 }
@@ -17,10 +18,11 @@ const LPHero = ({
   ctaText = "Simular Agora",
   whatsappNumber = "5521222117070",
   whatsappMessage = "Olá! Gostaria de simular meu empréstimo consignado.",
+  whatsappUrl,
   heroImage,
   badge,
 }: LPHeroProps) => {
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappHref = whatsappUrl ?? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
@@ -46,7 +48,7 @@ const LPHero = ({
             {subtitle}
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up-delay-2">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="cta-gradient text-accent-foreground font-bold text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all animate-pulse-soft border-0">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 {ctaText}

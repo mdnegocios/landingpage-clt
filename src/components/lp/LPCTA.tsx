@@ -6,6 +6,7 @@ interface LPCTAProps {
   subtitle: string;
   whatsappNumber?: string;
   whatsappMessage?: string;
+  whatsappUrl?: string;
   phoneNumber?: string;
 }
 
@@ -14,9 +15,10 @@ const LPCTA = ({
   subtitle,
   whatsappNumber = "5521222117070",
   whatsappMessage = "Olá! Gostaria de mais informações.",
+  whatsappUrl,
   phoneNumber = "(21) 2221-1707",
 }: LPCTAProps) => {
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappHref = whatsappUrl ?? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <section className="py-20 md:py-28 bg-card">
@@ -25,7 +27,7 @@ const LPCTA = ({
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">{title}</h2>
           <p className="text-lg text-muted-foreground mb-10">{subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="cta-gradient text-accent-foreground font-bold text-lg px-10 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all animate-pulse-soft border-0 w-full sm:w-auto">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Falar no WhatsApp

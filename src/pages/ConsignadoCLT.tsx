@@ -9,6 +9,8 @@ import LPFooter from "@/components/lp/LPFooter";
 import WhatsAppFloat from "@/components/lp/WhatsAppFloat";
 import heroImage from "@/assets/hero-clt.jpg";
 
+const whatsappUrl = "https://wa.link/4k5vuf";
+
 const ConsignadoCLT = () => {
   return (
     <>
@@ -20,6 +22,7 @@ const ConsignadoCLT = () => {
         ctaText="Simular Meu Crédito"
         whatsappNumber="5521923672580"
         whatsappMessage="Olá! Sou CLT e gostaria de simular meu empréstimo consignado."
+        whatsappUrl={whatsappUrl}
         heroImage={heroImage}
       />
       <LPBenefits
@@ -56,9 +59,10 @@ const ConsignadoCLT = () => {
         subtitle="Simule agora mesmo e descubra quanto você pode conseguir com as melhores condições para CLT."
         whatsappNumber="5521923672580"
         whatsappMessage="Olá! Sou CLT e gostaria de simular meu empréstimo consignado."
+        whatsappUrl={whatsappUrl}
       />
       <LPFooter />
-      <WhatsAppFloat number="5521923672580" message="Olá! Sou CLT e gostaria de simular meu consignado." />
+      <WhatsAppFloat number="5521923672580" message="Olá! Sou CLT e gostaria de simular meu consignado." url={whatsappUrl} />
     </>
   );
 };
